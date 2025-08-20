@@ -4,8 +4,28 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X, Calendar, MapPin, Users } from 'lucide-react';
 
-// Enhanced gallery data with categories and metadata
-const galleryData = [
+// ---------------------
+// Type Definitions
+// ---------------------
+type ImageItem = {
+  src: string;
+  alt: string;
+};
+
+type GalleryItem = {
+  id: number;
+  category: string;
+  title: string;
+  date: string;
+  location: string;
+  description: string;
+  images: ImageItem[];
+};
+
+// ---------------------
+// Gallery Data
+// ---------------------
+const galleryData: GalleryItem[] = [
   {
     id: 1,
     category: 'Championship',
@@ -88,16 +108,19 @@ const galleryData = [
 
 const categories = ['All', 'Championship', 'Training', 'Community', 'Matches', 'Awards', 'Behind the Scenes'];
 
+// ---------------------
+// Component
+// ---------------------
 export default function GalleryEnhanced() {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const filteredData = selectedCategory === 'All' 
     ? galleryData 
-    : galleryData.filter(item => item.category === selectedCategory);
+    : galleryData.filter((item: GalleryItem) => item.category === selectedCategory);
 
-  const openLightbox = (item, imageIndex) => {
+  const openLightbox = (item: GalleryItem, imageIndex: number) => {
     setSelectedImage(item);
     setCurrentImageIndex(imageIndex);
   };
@@ -158,7 +181,7 @@ export default function GalleryEnhanced() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 $ ${
+                className={`px-4 py-2 rounded-full font-medium transition-all duration-300 ${
                   selectedCategory === category
                     ? 'bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 shadow-lg'
                     : 'bg-white text-blue-900 hover:bg-blue-100 shadow'

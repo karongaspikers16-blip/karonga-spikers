@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Calendar, ChevronRight } from 'lucide-react';
-import { newsArticles } from '@/data/news';
+import { newsArticles } from '../../data/news'; // fixed relative import
 
 export default function NewsPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -36,15 +36,13 @@ export default function NewsPage() {
           <h2 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">Latest News</h2>
 
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search news..."
-                className="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
+            <input
+              type="text"
+              placeholder="Search news..."
+              className="w-full md:w-64 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
 
             <select
               className="w-full md:w-48 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500"
@@ -65,13 +63,8 @@ export default function NewsPage() {
                 <div className="absolute inset-0 bg-gray-200 flex items-center justify-center">
                   <p className="text-gray-500">Image placeholder</p>
                 </div>
-                {/* In a real app, you would use actual images */}
-                {/* <Image
-                  src={article.image}
-                  alt={article.title}
-                  fill
-                  className="object-cover"
-                /> */}
+                {/* Uncomment below when actual images are ready in public/news/ */}
+                {/* <Image src={article.image!} alt={article.title} fill className="object-cover" /> */}
               </div>
 
               <div className="p-6 flex flex-col flex-grow">

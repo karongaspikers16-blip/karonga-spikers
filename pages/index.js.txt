@@ -1,0 +1,8 @@
+export default function Home() {
+  return (
+    <div style={{ textAlign: "center", marginTop: "50px" }}>
+      <h1>🏐 Karonga Spikers Internal App</h1>
+      <p>App is running successfully!</p>
+    </div>
+  );
+}

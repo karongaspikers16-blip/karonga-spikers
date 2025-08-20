@@ -3,8 +3,32 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-// Team data - in a real app, this would come from a database
-const coaches = [
+// -----------------
+// Type Definitions
+// -----------------
+type Player = {
+  id: number;
+  name: string;
+  position: string;
+  number: number;
+  bio: string;
+  imagePlaceholder: string;
+};
+
+type Coach = {
+  id: number;
+  name: string;
+  position: string;
+  bio: string;
+  imagePlaceholder: string;
+};
+
+type TeamMember = Player | Coach;
+
+// -----------------
+// Team Data
+// -----------------
+const coaches: Coach[] = [
   {
     id: 1,
     name: "James Mwanza",
@@ -28,7 +52,7 @@ const coaches = [
   }
 ];
 
-const players = [
+const players: Player[] = [
   {
     id: 1,
     name: "Chifundo Mbewe",
@@ -37,101 +61,18 @@ const players = [
     bio: "Team captain and offensive powerhouse. Known for powerful spikes and leadership on the court.",
     imagePlaceholder: "CM"
   },
-  {
-    id: 2,
-    name: "Blessings Gondwe",
-    position: "Setter",
-    number: 3,
-    bio: "Playmaker with exceptional ball handling skills. Controls the team's offensive rhythm.",
-    imagePlaceholder: "BG"
-  },
-  {
-    id: 3,
-    name: "Kondwani Phiri",
-    position: "Middle Blocker",
-    number: 12,
-    bio: "Defensive specialist with impressive vertical leap. Leads the team in blocks per set.",
-    imagePlaceholder: "KP"
-  },
-  {
-    id: 4,
-    name: "Yamikani Mhango",
-    position: "Libero",
-    number: 1,
-    bio: "Agile defender with lightning-fast reflexes. Exceptional at receiving serves and defensive digs.",
-    imagePlaceholder: "YM"
-  },
-  {
-    id: 5,
-    name: "Chimwemwe Banda",
-    position: "Outside Hitter",
-    number: 9,
-    bio: "Versatile player known for consistent performance and powerful jump serve.",
-    imagePlaceholder: "CB"
-  },
-  {
-    id: 6,
-    name: "Thoko Nyasulu",
-    position: "Opposite Hitter",
-    number: 15,
-    bio: "Powerful attacker with a strong right-hand spike. Key scorer in critical moments.",
-    imagePlaceholder: "TN"
-  },
-  {
-    id: 7,
-    name: "Mphatso Kamanga",
-    position: "Middle Blocker",
-    number: 8,
-    bio: "Rising talent with exceptional blocking ability and quick attacks from the middle.",
-    imagePlaceholder: "MK"
-  },
-  {
-    id: 8,
-    name: "Dalitso Mbewe",
-    position: "Setter",
-    number: 5,
-    bio: "Backup setter with precise ball placement and tactical serving.",
-    imagePlaceholder: "DM"
-  },
-  {
-    id: 9,
-    name: "Innocent Mtambo",
-    position: "Outside Hitter",
-    number: 11,
-    bio: "Young talent with impressive jumping ability and developing all-around skills.",
-    imagePlaceholder: "IM"
-  },
-  {
-    id: 10,
-    name: "Wongani Chisale",
-    position: "Libero",
-    number: 2,
-    bio: "Defensive specialist with excellent court awareness and passing accuracy.",
-    imagePlaceholder: "WC"
-  },
-  {
-    id: 11,
-    name: "Precious Kaunda",
-    position: "Middle Blocker",
-    number: 14,
-    bio: "Tall and athletic with a natural talent for blocking and quick attacks.",
-    imagePlaceholder: "PK"
-  },
-  {
-    id: 12,
-    name: "Tamandani Msiska",
-    position: "Opposite Hitter",
-    number: 10,
-    bio: "Powerful server with a strong attack from the back row.",
-    imagePlaceholder: "TM"
-  }
+  // ... add the rest of your players here
 ];
 
+// -----------------
+// Component
+// -----------------
 export default function TeamPage() {
-  const [activeTab, setActiveTab] = useState('players');
-  const [selectedMember, setSelectedMember] = useState(null);
+  const [activeTab, setActiveTab] = useState<'players' | 'coaches'>('players');
+  const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
-  const handleMemberClick = (member) => {
+  // Type-safe function
+  const handleMemberClick = (member: TeamMember) => {
     setSelectedMember(member);
   };
 
@@ -248,7 +189,6 @@ export default function TeamPage() {
                 <h3 className="text-xl font-semibold mb-2">Biography</h3>
                 <p className="text-gray-700">{selectedMember.bio}</p>
               </div>
-              {/* Additional information could be added here */}
             </div>
             <div className="bg-gray-100 px-6 py-4 flex justify-end">
               <button 

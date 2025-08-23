@@ -50,7 +50,7 @@ const achievements = [
   },
   {
     title: "Players Selected",
-    count: "8",
+    count: "8x",
     description: "National team selections",
   },
 ];
@@ -58,7 +58,7 @@ const achievements = [
 export default function HomeEnhanced() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section with Enhanced Styling */}
+      {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative container mx-auto px-4 py-20">
@@ -87,7 +87,6 @@ export default function HomeEnhanced() {
                 </Link>
               </div>
             </div>
-            
             <div className="lg:w-1/2 flex justify-center">
               <div className="relative">
                 <div className="w-64 h-64 lg:w-80 lg:h-80 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center animate-pulse">
@@ -124,7 +123,7 @@ export default function HomeEnhanced() {
         </div>
       </section>
 
-      {/* Features Section with Enhanced Cards */}
+      {/* Features Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12 text-blue-900">
@@ -140,7 +139,6 @@ export default function HomeEnhanced() {
                 Multiple regional championships and national tournament appearances. Our track record speaks for itself.
               </p>
             </div>
-
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Users className="h-8 w-8 text-white" />
@@ -150,7 +148,6 @@ export default function HomeEnhanced() {
                 Experienced coaches dedicated to player development and team success. We invest in our players' futures.
               </p>
             </div>
-
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
               <div className="bg-gradient-to-r from-yellow-400 to-yellow-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                 <Star className="h-8 w-8 text-white" />
@@ -164,7 +161,7 @@ export default function HomeEnhanced() {
         </div>
       </section>
 
-      {/* Upcoming Match Section with Enhanced Design */}
+      {/* Upcoming Match Section */}
       <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl lg:text-4xl font-bold text-center mb-12">Next Match</h2>
@@ -199,7 +196,7 @@ export default function HomeEnhanced() {
         </div>
       </section>
 
-      {/* Recent News Section with Enhanced Cards */}
+      {/* Recent News Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row justify-between items-center mb-12">
@@ -213,7 +210,6 @@ export default function HomeEnhanced() {
               View All News <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {recentNews.map((item) => (
               <div key={item.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
@@ -240,145 +236,42 @@ export default function HomeEnhanced() {
         </div>
       </section>
 
-      {/* Call to Action Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-            Ready to Join Our Team?
-          </h2>
-          <p className="text-xl mb-8 text-blue-200 max-w-2xl mx-auto">
-            Whether you're a player, coach, or supporter, there's a place for you in the Karonga Spikers family.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/contact" 
-              className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-blue-900 px-8 py-4 rounded-lg font-semibold hover:from-yellow-500 hover:to-yellow-600 transition-all duration-300"
-            >
-              Join Our Team
-            </Link>
-            <Link 
-              href="/contact" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300"
-            >
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* Placeholder Sections */}
+      <TestimonialsSection />
+      <InstagramFeedSection />
+      <NewsletterSection />
 
-      {/* Sponsors Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-blue-900 mb-4">Our Sponsors & Partners</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              We are grateful for the support of our amazing sponsors and partners who make our success possible
-            </p>
-          </div>
-
-          {/* Sponsor Tiers */}
-          <div className="space-y-12">
-            {/* Platinum Sponsors */}
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-800">Platinum Sponsors</h3>
-              <div className="flex justify-center">
-                <div className="border-4 border-gray-300 bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-xl max-w-xs">
-                  <div className="text-center">
-                    <div className="w-32 h-32 mx-auto mb-4 bg-white rounded-lg flex items-center justify-center">
-                      <div className="w-28 h-20 bg-gradient-to-r from-blue-600 to-blue-700 rounded flex items-center justify-center text-white font-bold">
-                        Karonga Council
-                      </div>
-                    </div>
-                    <h4 className="font-bold text-lg mb-2">Karonga District Council</h4>
-                    <p className="text-sm text-gray-600 mb-3">Official government partner supporting sports development</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Gold Sponsors */}
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-8 text-yellow-600">Gold Sponsors</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-                <div className="border-4 border-yellow-400 bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-xl">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center">
-                      <div className="w-20 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded flex items-center justify-center text-white font-bold text-sm">
-                        NBM
-                      </div>
-                    </div>
-                    <h4 className="font-bold text-base mb-1">National Bank of Malawi</h4>
-                    <p className="text-xs text-gray-600">Banking partner and financial services provider</p>
-                  </div>
-                </div>
-                <div className="border-4 border-yellow-400 bg-gradient-to-br from-yellow-50 to-yellow-100 p-4 rounded-xl">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto mb-3 bg-white rounded-lg flex items-center justify-center">
-                      <div className="w-20 h-16 bg-gradient-to-r from-red-500 to-red-600 rounded flex items-center justify-center text-white font-bold text-sm">
-                        Airtel
-                      </div>
-                    </div>
-                    <h4 className="font-bold text-base mb-1">Airtel Malawi</h4>
-                    <p className="text-xs text-gray-600">Telecommunications and connectivity partner</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Silver & Bronze Sponsors */}
-            <div>
-              <h3 className="text-2xl font-bold text-center mb-8 text-gray-600">Supporting Sponsors</h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-6xl mx-auto">
-                <div className="border-2 border-gray-400 bg-gradient-to-br from-gray-50 to-gray-100 p-3 rounded-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-white rounded flex items-center justify-center">
-                      <span className="text-xs font-bold">MSB</span>
-                    </div>
-                    <h4 className="font-bold text-sm">Malawi Savings Bank</h4>
-                  </div>
-                </div>
-                <div className="border-2 border-gray-400 bg-gradient-to-br from-gray-50 to-gray-100 p-3 rounded-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-white rounded flex items-center justify-center">
-                      <span className="text-xs font-bold">Shoprite</span>
-                    </div>
-                    <h4 className="font-bold text-sm">Shoprite Malawi</h4>
-                  </div>
-                </div>
-                <div className="border-2 border-orange-400 bg-gradient-to-br from-orange-50 to-orange-100 p-3 rounded-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-white rounded flex items-center justify-center">
-                      <span className="text-xs font-bold">Castel</span>
-                    </div>
-                    <h4 className="font-bold text-sm">Castel Malawi</h4>
-                  </div>
-                </div>
-                <div className="border-2 border-gray-400 bg-gradient-to-br from-gray-50 to-gray-100 p-3 rounded-lg">
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-2 bg-white rounded flex items-center justify-center">
-                      <span className="text-xs font-bold">+More</span>
-                    </div>
-                    <h4 className="font-bold text-sm">And More...</h4>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Become a Sponsor CTA */}
-          <div className="text-center mt-12 bg-gradient-to-r from-blue-50 to-blue-100 p-8 rounded-xl">
-            <h3 className="text-2xl font-bold text-blue-900 mb-4">Become a Sponsor</h3>
-            <p className="text-gray-700 mb-6 max-w-xl mx-auto">
-              Partner with us to support volleyball development in Karonga and gain valuable exposure for your brand.
-            </p>
-            <Link
-              href="/contact"
-              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
-            >
-              Contact Us About Sponsorship
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
+  );
+}
+
+/* Placeholder components to prevent build errors */
+function TestimonialsSection() {
+  return (
+    <section className="py-16 bg-white text-center">
+      <h2 className="text-3xl font-bold text-blue-900 mb-4">Testimonials</h2>
+      <p className="text-gray-600">User testimonials will go here.</p>
+    </section>
+  );
+}
+
+function InstagramFeedSection() {
+  return (
+    <section className="py-16 bg-gray-50 text-center">
+      <h2 className="text-3xl font-bold text-blue-900 mb-4">Instagram Feed</h2>
+      <p className="text-gray-600">Instagram posts will go here.</p>
+    </section>
+  );
+}
+
+function NewsletterSection() {
+  return (
+    <section className="py-16 bg-blue-900 text-white text-center">
+      <h2 className="text-3xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+      <p className="mb-4">Get the latest news and updates from Karonga Spikers.</p>
+      <button className="bg-yellow-400 text-blue-900 px-6 py-3 rounded-lg font-semibold hover:bg-yellow-500 transition-all duration-300">
+        Subscribe
+      </button>
+    </section>
   );
 }
